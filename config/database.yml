@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: toys_on_rails_development
+  database: toys_on_rails_aec_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: toys_on_rails_test
+  database: toys_on_rails_aec_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: toys_on_rails_production
+  database: toys_on_rails_aec_production
   username: toys_on_rails
   password: <%= ENV['TOYS_ON_RAILS_DATABASE_PASSWORD'] %>

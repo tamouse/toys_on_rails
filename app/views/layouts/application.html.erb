@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ToysOnRails</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>ToysOnRails</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
 
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <p class="alert"><%= alert %></p>
-          <p class="notice"><%= notice %></p>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header"><a href="/" class="navbar-brand">Toys on Rails</a></div>
+    <%= left_navbar %>
+    <%= right_navbar %>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <% if alert %>
+        <div class="alert alert-danger">
+          <%= alert %>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <% if user_signed_in? %>
-          <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
-          <% else %>
-          <p><%= link_to "Sign In", new_user_session_path %></p>
-          <% end %>
+      <% end %>
+      <% if notice %>
+        <div class="alert alert-success">
+          <%= notice %>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <%= yield %>
-        </div>
-      </div>
+      <% end %>
     </div>
-  </body>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+</body>
 </html>
