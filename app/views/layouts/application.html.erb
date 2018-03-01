@@ -18,6 +18,16 @@
       </div>
       <div class="row">
         <div class="col-sm-12">
+          <% if user_signed_in? %>
+          <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
+          <% else %>
+          <p><%= link_to "Sign In", new_user_session_path %></p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
           <%= yield %>
         </div>
       </div>
